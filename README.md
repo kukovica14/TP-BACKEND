@@ -3,8 +3,8 @@
 Proyecto desarrollado para el curso de Programación Back-End. Consiste en una API RESTful para la gestión de productos y categorías de una marca de cerveza artesanal, incluyendo autenticación de usuarios y persistencia en MongoDB.
 
 ## 🚀 Tecnologías Utilizadas
-* **Node.js** & **Express** (Servidor)
-* **MongoDB Atlas** & **Mongoose** (Base de datos y modelado)
+* **Node.js & Express** (Servidor)
+* **MongoDB Atlas & Mongoose** (Base de datos y modelado)
 * **JWT (JSON Web Token)** (Seguridad)
 * **Bcryptjs** (Encriptación de contraseñas)
 * **Dotenv** (Variables de entorno)
@@ -14,44 +14,44 @@ Proyecto desarrollado para el curso de Programación Back-End. Consiste en una A
 1. **Instalar dependencias:**
    ```bash
    npm install
-Variables de Entorno:
-Crear un archivo .env en la raíz basado en el archivo .env.example provisto:
+   ```
 
-Fragmento de código
-PORT=3000
-MONGO_URI=tu_conexion_mongodb
-JWT_SECRET=tu_clave_secreta
-Ejecutar en desarrollo:
+2. **Variables de Entorno:**
+   Crear un archivo `.env` en la raíz basado en el archivo `.env.example` provisto:
+   ```env
+   PORT=3000
+   MONGO_URI=tu_conexion_mongodb
+   JWT_SECRET=tu_clave_secreta
+   ```
 
-Bash
-npm run dev
-🔐 Endpoints Principales
-Usuarios (Auth)
-POST /api/users/register - Registro de nuevo usuario.
+3. **Ejecutar en desarrollo:**
+   ```bash
+   npm run dev
+   ```
 
-POST /api/users/login - Login y obtención de Token JWT.
+## 🔐 Endpoints Principales
 
-Productos (Requiere Token)
-GET /api/products - Listar todos los productos (con .populate() de categorías).
+### Usuarios (Auth)
+* `POST /api/users/register` - Registro de nuevo usuario.
+* `POST /api/users/login` - Login y obtención de Token JWT.
 
-POST /api/products - Crear un nuevo producto.
+### Productos (Requiere Token)
+* `GET /api/products` - Listar todos los productos (con `.populate()` de categorías).
+* `POST /api/products` - Crear un nuevo producto.
+* `PUT /api/products/:id` - Editar un producto.
+* `DELETE /api/products/:id` - Eliminar un producto.
 
-PUT /api/products/:id - Editar un producto.
+### Categorías
+* `GET /api/categories` - Listar categorías.
+* `POST /api/categories` - Crear una categoría.
 
-DELETE /api/products/:id - Eliminar un producto.
+## 📂 Estructura de Carpetas
+* `src/models`: Esquemas de Mongoose.
+* `src/services`: Lógica de negocio y comunicación con la DB.
+* `src/controllers`: Manejo de peticiones y respuestas.
+* `src/routes`: Definición de rutas y aplicación de Middlewares.
+* `src/config`: Configuración de la base de datos.
+```
 
-Categorías
-GET /api/categories - Listar categorías.
+---
 
-POST /api/categories - Crear una categoría.
-
-📂 Estructura de Carpetas
-src/models: Esquemas de Mongoose.
-
-src/services: Lógica de negocio y comunicación con la DB.
-
-src/controllers: Manejo de peticiones y respuestas.
-
-src/routes: Definición de rutas y aplicación de Middlewares.
-
-src/config: Configuración de la base de datos. 
